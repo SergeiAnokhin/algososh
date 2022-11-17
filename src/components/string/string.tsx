@@ -7,12 +7,12 @@ import { DELAY_IN_MS } from "../../constants/delays";
 import style from "./string.module.css";
 import { ElementStates } from "../../types/element-states";
 
-export const StringComponent: React.FC = () => {
+interface IChars {
+  chars?: string,
+  color: ElementStates
+}
 
-  interface IChars {
-    chars?: string,
-    color: ElementStates
-  }
+export const StringComponent: React.FC = () => {
 
   const [isLoader, setIsLoader] = useState(false);
   const [isDisabled, setIsDisabled] = useState(true);
