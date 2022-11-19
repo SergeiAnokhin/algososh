@@ -22,3 +22,11 @@
 .list svg:last-child {
     display: none;
 }
+
+.smallButton {
+    min-width: 175px;
+}
+
+.largeButton {
+    min-width: 362px;
+}

@@ -7,7 +7,8 @@ import { Circle } from "../ui/circle/circle";
 import { nanoid } from "nanoid";
 import { SHORT_DELAY_IN_MS } from "../../constants/delays";
 import { ElementStates } from "../../types/element-states";
-import { IStack, Stack, TStackContainer, IInProcess } from "../../types/stack";
+import { IStack, Stack, TStackContainer, IInProcess } from "./stack";
+import { delay } from "../../utils";
 
 export const StackPage: React.FC = () => {
 
@@ -16,10 +17,6 @@ export const StackPage: React.FC = () => {
   const [ circles, setCircles ] = useState<TStackContainer<string>>([])
   const [ inProcess, setInProcess ] = useState<IInProcess>({ add: false, remove: false });
   const isAnyProcess = inProcess.add || inProcess.remove;
-
-  const delay = (ms: number) => {
-    return new Promise(resolve => setTimeout(resolve, ms));
-  }
   
   const shortDelay = () => delay(SHORT_DELAY_IN_MS)
 

@@ -5,6 +5,7 @@ import { RadioInput } from "../ui/radio-input/radio-input";
 import { Button } from "../ui/button/button";
 import { Direction } from "../../types/direction";
 import { Column } from "../ui/column/column";
+import { getRandomArr } from "./utils";
 
 export const SortingPage: React.FC = () => {
 
@@ -20,22 +21,7 @@ export const SortingPage: React.FC = () => {
   const [candidateInd, setCandidateInd] = useState(-1);
   const [candidatesInd, setCandidatesInd] = useState<number[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const timeout = 500;
-
-  const getRandomInt = (min: number, max: number) => {
-    const rand = min + Math.random() * (max + 1 - min);
-    return Math.floor(rand);
-  }
-
-  const getRandomArr = () => {
-    const arrLength = getRandomInt(4,6);
-    const arr = [];
-    for (let i = 0; i < arrLength; i++) {
-      arr.push(getRandomInt(0,100));
-    }
-  
-    return arr;
-  }
+  const timeout = 2500;
 
   const handleAsc = (event: React.UIEvent<HTMLElement>) => {
     setIsLoading(true);
@@ -81,9 +67,12 @@ export const SortingPage: React.FC = () => {
       setCandidatesInd([internalStep, internalStep + 1]);
 
     } else {
-      if (internalStep>=arr.length) {
+      
+      if (internalStep >= arr.length) {
+        
         let array = [...arr];
-        const value = array[step];
+        
+        const value = array[step];               
 
         if (isDesc) {
           array[step] = array[maxNumInd];
@@ -98,7 +87,7 @@ export const SortingPage: React.FC = () => {
         setStep(step+1);
 
         return;
-      }
+      }         
 
       if (isDesc) {
         if (arr[internalStep] > maxNum) {
@@ -145,12 +134,13 @@ export const SortingPage: React.FC = () => {
         setCandidateInd(maxNumInd);
       } else {
         setMinNum(firstNum < secondNum ? firstNum : secondNum);
-        const minNumInd = firstNum < secondNum ? step : step+1;
+        const minNumInd = firstNum < secondNum ? step : step+1;        
         setMinNumInd(minNumInd);
         setCandidateInd(minNumInd);
       }
       
-      setCandidatesInd([step, step+1]);
+      
+      setCandidatesInd([step, step + 1]);
     }
   }
 
@@ -163,7 +153,7 @@ export const SortingPage: React.FC = () => {
   const isCandidateColumn = (index: number) => {
     return isBubble
       ? candidatesInd.includes(index)
-      : candidatesInd.includes(index) || index === internalStep || index === candidateInd;
+      : index === step || index === internalStep;
   }
 
   useEffect(() => {

@@ -6,6 +6,7 @@ import { Circle } from "../ui/circle/circle";
 import { DELAY_IN_MS } from "../../constants/delays";
 import style from "./string.module.css";
 import { ElementStates } from "../../types/element-states";
+import { swap } from "./utils";
 import { IChars } from "../../types/string";
 
 export const StringComponent: React.FC = () => {
@@ -14,14 +15,6 @@ export const StringComponent: React.FC = () => {
   const [isDisabled, setIsDisabled] = useState(true);
   const [inputString, setInputString] = useState("");
   const [arrChars, setArrChars] = useState<IChars[]>([]);
-
-  const swap = (j: number, i: number, arr: IChars[]) => {
-    const arrTemp = [...arr];
-    const temp = arrTemp[j].chars;
-    arrTemp[j].chars = arrTemp[i].chars;
-    arrTemp[i].chars = temp;
-    return arrTemp;
-  };
 
   const reverseString = (j: number, i: number, arr: IChars[]) => {
     const mid = Math.floor(arr.length / 2);

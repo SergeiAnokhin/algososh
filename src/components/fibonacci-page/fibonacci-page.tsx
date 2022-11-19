@@ -5,6 +5,7 @@ import { Button } from "../ui/button/button";
 import { Circle } from "../ui/circle/circle";
 import { SHORT_DELAY_IN_MS } from "../../constants/delays";
 import style from "./fibonacci-page.module.css";
+import { MIN_VALUE, MAX_VALUE } from "../../constants/constans";
 
 export const FibonacciPage: React.FC = () => {
 
@@ -12,11 +13,8 @@ export const FibonacciPage: React.FC = () => {
   const [fibArray, setFibArray] = React.useState<number[]>([]);
   const [isLoading, setIsLoading] = React.useState(false);
 
-  const MIN_VALUE = 1;
-  const MAX_VALUE = 19;
-
-  const addFibNumbers = (n: number): number[] => {
-    const arr = [0, 1];
+  const getFibonacciNumbers = (n: number): number[] => {
+    const arr = [1, 1];
     for (let i = 2; i <= n; i++) {
       arr.push(arr[i - 2] + arr[i - 1]);
     }
@@ -44,7 +42,7 @@ export const FibonacciPage: React.FC = () => {
     event.preventDefault();
     setIsLoading(true);
     setFibArray([]);
-    const fibSequence = addFibNumbers(value);
+    const fibSequence = getFibonacciNumbers(value);
     addFibArr(fibSequence);
   };
 

@@ -1,4 +1,4 @@
-import { ElementStates } from "./element-states";
+import { ElementStates } from "../../types/element-states";
 
 export interface IListItemProps {
     adding?: boolean;
@@ -22,7 +22,10 @@ export interface IListItemProps {
     enqueue: (value: T) => void
     dequeue: () => void
     getHead: () => { value: T | null; index: number } 
-    getTail: () => { value: T | null; index: number } 
+    getTail: () => { value: T | null; index: number }
+    getElements: () => Array<T | null>
+    isEmpty: () => boolean
+    clear: () => void
   }
   
   export class Node<T> implements INode<T> {
@@ -77,6 +80,17 @@ export interface IListItemProps {
       }
       return { value: this.container[this.tail-1], index: this.tail-1 }
     }
+
+    getElements = () => {
+      return [...this.container]
+    }
   
     isEmpty = () => this.length === 0
+
+    clear = () => {
+      this.head = 0;
+      this.tail = 0;
+      this.length = 0;
+      this.container = [];
+    }
   }

@@ -8,7 +8,7 @@ import { nanoid } from 'nanoid';
 import { ElementStates } from '../../types/element-states';
 import { ArrowIcon } from '../ui/icons/arrow-icon';
 import { SHORT_DELAY_IN_MS } from '../../constants/delays';
-import { defaultList, TListElement, linkedList } from '../../types/list';
+import { defaultList, TListElement, linkedList } from './list';
 
 export const ListPage: FC = () => {
 	const initialList = defaultList.toArray();
@@ -221,25 +221,25 @@ export const ListPage: FC = () => {
 						text='Добавить в head'
 						disabled={!value.length}
 						isLoader={addToHead}
-						style={{ minWidth: '175px' }}
+						extraClass={style.smallButton}
 						onClick={addToHeadHandler}></Button>
 					<Button
 						text='Добавить в tail'
 						disabled={!value.length}
 						isLoader={addToTail}
-						style={{ minWidth: '175px' }}
+						extraClass={style.smallButton}
 						onClick={addToTailHandler}></Button>
 					<Button
 						text='Удалить из head'
 						disabled={addToTail || addToHead}
 						isLoader={removeFromHead}
-						style={{ minWidth: '175px' }}
+						extraClass={style.smallButton}
 						onClick={removeFromHeadHandler}></Button>
 					<Button
 						text='Удалить из tail'
 						disabled={addToTail || addToHead}
 						isLoader={removeFromTail}
-						style={{ minWidth: '175px' }}
+						extraClass={style.smallButton}
 						onClick={removeFromTailHandler}></Button>
 				</div>
 				<div className={style.controls}>
@@ -254,13 +254,13 @@ export const ListPage: FC = () => {
 						text='Добавить по индексу'
 						disabled={!index.length || !value.length}
 						isLoader={addByIndex}
-						style={{ minWidth: '362px' }}
+						extraClass={style.largeButton}
 						onClick={addByIndexHandler}></Button>
 					<Button
 						text='Удалить по индексу'
 						disabled={!index.length}
 						isLoader={removeByIndex}
-						style={{ minWidth: '362px' }}
+						extraClass={style.largeButton}
 						onClick={removeByIndexHandler}></Button>
 				</div>
 			</div>

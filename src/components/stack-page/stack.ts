@@ -1,4 +1,4 @@
-import { ElementStates } from "./element-states";
+import { ElementStates } from "../../types/element-states";
 
 export interface IInProcess {
     add: boolean;
@@ -31,6 +31,10 @@ export interface IInProcess {
   
     get elements() {
       return [...this.container];
+    }
+
+    get size() {
+      return this.container.length
     }
   }
   

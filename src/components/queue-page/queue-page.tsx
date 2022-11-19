@@ -6,7 +6,8 @@ import { Input } from "../ui/input/input"
 import style from "./queue-page.module.css"
 import { ElementStates } from "../../types/element-states"
 import { SHORT_DELAY_IN_MS } from "../../constants/delays"
-import { IListItemProps, IQueue, Queue } from "../../types/queue"
+import { IListItemProps, IQueue, Queue } from "./queue"
+import { delay } from "../../utils"
 
 export const QueuePage: React.FC = () => {
   const newQueue = new Queue<string>(6)
@@ -21,10 +22,6 @@ export const QueuePage: React.FC = () => {
   const [deleting, setDeleting] = useState(false)
   const [queue, setQueue] = useState<IQueue<string>>(newQueue)
   const [headIndex, setheadIndex] = useState<number | null>(null)
-
-  const delay = async (ms: number) => {
-    return new Promise(resolve => setTimeout(resolve, ms))
-  }
 
   const sortAndWait = async (arr: IListItemProps[]) => {
     setArrLetters([...arr])

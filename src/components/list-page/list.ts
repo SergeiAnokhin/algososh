@@ -1,5 +1,5 @@
 import { ReactElement } from "react";
-import { ElementStates } from "./element-states";
+import { ElementStates } from "../../types/element-states";
 
 export type TListElement = {
     element: string;
@@ -23,6 +23,7 @@ export type TListElement = {
       deleteHead: () => LinkedListNode<T> | null;
       deleteTail: () => LinkedListNode<T> | null;
       addByIndex: (element: T, idx: number) => void;
+      deleteByIndex: (idx: number) => void;
       toArray: () => T[];
       fromArray: (elements: T[]) => ILinkedList<T>;
       getSize: () => number;
