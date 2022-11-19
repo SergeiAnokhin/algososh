@@ -1,0 +1,24 @@
+.flexContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.form {
+  display: flex;
+  margin: auto;
+  max-width: 829px;
+	gap: 12px;
+}
+
+.circleList {
+  list-style-type: none;
+  margin-top: 48px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+  
+.clearButton {
+  margin-left: 100px;
+}

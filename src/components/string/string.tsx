@@ -6,11 +6,7 @@ import { Circle } from "../ui/circle/circle";
 import { DELAY_IN_MS } from "../../constants/delays";
 import style from "./string.module.css";
 import { ElementStates } from "../../types/element-states";
-
-interface IChars {
-  chars?: string,
-  color: ElementStates
-}
+import { IChars } from "../../types/string";
 
 export const StringComponent: React.FC = () => {
 

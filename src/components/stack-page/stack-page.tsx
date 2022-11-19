@@ -6,7 +6,8 @@ import { Button } from "../ui/button/button";
 import { Circle } from "../ui/circle/circle";
 import { nanoid } from "nanoid";
 import { SHORT_DELAY_IN_MS } from "../../constants/delays";
-import { IStack, Stack, TStackContainer, IInProcess, ElementStates } from "../../types/stack";
+import { ElementStates } from "../../types/element-states";
+import { IStack, Stack, TStackContainer, IInProcess } from "../../types/stack";
 
 export const StackPage: React.FC = () => {
 

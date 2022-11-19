@@ -1,3 +1,5 @@
+import { ElementStates } from "./element-states";
+
 export interface IInProcess {
     add: boolean;
     remove: boolean;
@@ -30,12 +32,6 @@ export interface IInProcess {
     get elements() {
       return [...this.container];
     }
-  }
-  
-  export enum ElementStates {
-    Default = "default",
-    Changing = "changing",
-    Modified = "modified",
   }
   
   export interface IElement<T> {
