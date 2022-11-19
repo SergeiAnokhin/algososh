@@ -60,6 +60,7 @@ export const FibonacciPage: React.FC = () => {
           type="number"
           extraClass={style.input}
           max={MAX_VALUE}
+          min={MIN_VALUE}
           isLimitText={true}
           onChange={inputHandler}
           placeholder="Введите число"

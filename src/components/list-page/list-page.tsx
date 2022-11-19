@@ -218,25 +218,25 @@ export const ListPage: FC = () => {
 						isLimitText
 						maxLength={4}></Input>
 					<Button
-						text='Добавить&nbsp;в&nbsp;head'
+						text='Добавить в head'
 						disabled={!value.length}
 						isLoader={addToHead}
 						style={{ minWidth: '175px' }}
 						onClick={addToHeadHandler}></Button>
 					<Button
-						text='Добавить&nbsp;в&nbsp;tail'
+						text='Добавить в tail'
 						disabled={!value.length}
 						isLoader={addToTail}
 						style={{ minWidth: '175px' }}
 						onClick={addToTailHandler}></Button>
 					<Button
-						text='Удалить&nbsp;из&nbsp;head'
+						text='Удалить из head'
 						disabled={addToTail || addToHead}
 						isLoader={removeFromHead}
 						style={{ minWidth: '175px' }}
 						onClick={removeFromHeadHandler}></Button>
 					<Button
-						text='Удалить&nbsp;из&nbsp;tail'
+						text='Удалить из tail'
 						disabled={addToTail || addToHead}
 						isLoader={removeFromTail}
 						style={{ minWidth: '175px' }}
@@ -244,18 +244,20 @@ export const ListPage: FC = () => {
 				</div>
 				<div className={style.controls}>
 					<Input
+            type="number"
+            min={0}
 						onChange={onChangeInputIndex}
 						value={index}
 						placeholder='Введите индекс'
 						maxLength={1}></Input>
 					<Button
-						text='Добавить&nbsp;по&nbsp;индексу'
+						text='Добавить по индексу'
 						disabled={!index.length || !value.length}
 						isLoader={addByIndex}
 						style={{ minWidth: '362px' }}
 						onClick={addByIndexHandler}></Button>
 					<Button
-						text='Удалить&nbsp;по&nbsp;индексу'
+						text='Удалить по индексу'
 						disabled={!index.length}
 						isLoader={removeByIndex}
 						style={{ minWidth: '362px' }}
