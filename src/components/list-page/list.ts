@@ -33,10 +33,14 @@ export type TListElement = {
       private head: LinkedListNode<T> | null;
       private tail: LinkedListNode<T> | null;
       public size: number;
-      constructor() {
+      constructor(elements?: T[]) {
           this.head = null;
           this.tail = null;
           this.size = 0;
+          if (elements?.length) {
+            this.fromArray(elements);
+        };
+
       }
   
       prepend(element: T) {
@@ -154,8 +158,6 @@ export type TListElement = {
       }
   }
   
-  export const linkedList = new LinkedList<TListElement>();
-  
   export const defaultArr = [
       {
           element: `${Math.floor(Math.random() * 100)}`,
@@ -182,5 +184,5 @@ export type TListElement = {
           tail: 'tail',
       },
   ];
-  
- export const defaultList = linkedList.fromArray(defaultArr);
+
+  export const linkedList = new LinkedList<TListElement>(defaultArr);

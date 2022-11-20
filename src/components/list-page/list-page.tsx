@@ -8,10 +8,10 @@ import { nanoid } from 'nanoid';
 import { ElementStates } from '../../types/element-states';
 import { ArrowIcon } from '../ui/icons/arrow-icon';
 import { SHORT_DELAY_IN_MS } from '../../constants/delays';
-import { defaultList, TListElement, linkedList } from './list';
+import { TListElement, linkedList } from './list';
 
 export const ListPage: FC = () => {
-	const initialList = defaultList.toArray();
+	const initialList = linkedList.toArray();
 	let interval: ReturnType<typeof setInterval>;
 
 	const [list, setList] = useState<TListElement[]>(initialList);

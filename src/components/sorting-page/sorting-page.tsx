@@ -21,7 +21,7 @@ export const SortingPage: React.FC = () => {
   const [candidateInd, setCandidateInd] = useState(-1);
   const [candidatesInd, setCandidatesInd] = useState<number[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const timeout = 2500;
+  const timeout = 500;
 
   const handleAsc = (event: React.UIEvent<HTMLElement>) => {
     setIsLoading(true);
