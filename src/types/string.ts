@@ -1,6 +1,8 @@
 import { ElementStates } from "./element-states"
 
-export interface IChars {
-    chars?: string,
-    color: ElementStates
-  }
+export type TItem = string | number;
+
+export type TItemArr<T> = {
+  chars: T;
+  state: ElementStates;
+};

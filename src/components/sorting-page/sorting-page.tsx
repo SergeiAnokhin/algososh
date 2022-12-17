@@ -138,8 +138,7 @@ export const SortingPage: React.FC = () => {
         setMinNumInd(minNumInd);
         setCandidateInd(minNumInd);
       }
-      
-      
+         
       setCandidatesInd([step, step + 1]);
     }
   }
