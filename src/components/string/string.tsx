@@ -12,22 +12,22 @@ export const StringComponent: React.FC = () => {
   const [disabled, setDisabled] = useState<boolean>(true);
   const [loaderBtn, setLoaderBtn] = useState<boolean>(false);
   const [charsArr, setCharsArr] = useState<Array<TCharArr<TChar>>>([]);
+  const [inputValue, setInputValue] = useState('');
 
   const handlerChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.currentTarget.value.length > 0 ? setDisabled(false) : setDisabled(true);
-    setCharsArr(
-      e.currentTarget.value.split("").map((chars: string) => {
-        return {
-          chars,
-          state: ElementStates.Default,
-        };
-      })
-    );
+    setInputValue(e.target.value)
   };
 
   const handlerBtnClick = async () => {
+    const newArr = inputValue.split("").map((chars: string) => {
+      return {
+        chars,
+        state: ElementStates.Default,
+      };
+    })
     setLoaderBtn(true);
-    await reverseString(charsArr, setCharsArr);
+    await reverseString(newArr, setCharsArr);
     setLoaderBtn(false);
   };
 
@@ -35,7 +35,7 @@ export const StringComponent: React.FC = () => {
     <SolutionLayout title="Строка">
       <div className={style.container}>
         <Input
-          data-cy="input-reverse"
+          data="input"
           onChange={handlerChangeInput}
           placeholder="Введите текст"
           maxLength={11}
@@ -47,7 +47,7 @@ export const StringComponent: React.FC = () => {
           linkedList="small"
           isLoader={loaderBtn}
           disabled={disabled}
-          data-cy="btn-reverse"
+          data="button"
         />
       </div>
       <div className={style.circle}>
