@@ -1,51 +1,28 @@
-.controlsWrapper {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    margin: 0 auto 48px auto;
-    max-width: 980px;
-  }
-  
-  .inputsWrapper {
-    display: flex;
-    justify-content: space-between;
-    max-width: 221px;
-    width: 100%;
-  }
-  
-  .buttonsWrapper {
-    display: flex;
-    justify-content: space-between;
-    max-width: 707px;
-    width: 100%;
-  }
-  
-  .sortButtonsWrapper {
-    display: flex;
-    justify-content: space-between;
-    max-width: 428px;
-    width: 100%;
-  }
-  
-  .button {
-    max-width: 208px;
-    width: 100%;
-  }
-  
-  .histogramWrapper {
-    align-items: flex-end;
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    margin: 0 auto;
-    height: 100%;
-    max-height: 360px;
-  }
-  
-  .candidate>div {
-    background-color: var(--changing-color);
-  }
-  
-  .sorted>div {
-    background-color: var(--modified-color);
-  }
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.radioButtons {
+  display: flex;
+  column-gap: 40px;
+  margin-right: 52px;
+}
+
+.buttons {
+  display: flex;
+  column-gap: 12px;
+  margin-right: 80px;
+}
+
+.array {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 10px;
+  margin: 48px auto 0;
+  height: 342px;
+  overflow: hidden;
+}

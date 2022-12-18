@@ -1,27 +1,15 @@
 import { DELAY_IN_MS } from "../../constants/delays";
 import { ElementStates } from "../../types/element-states";
-import { TItem, TItemArr } from "../../types/string";
-
-export const delay = (ms: number) =>
-  new Promise((res) => setTimeout(res, ms));
-
-export const swap = (
-  arr: Array<TItemArr<TItem>>,
-  i: number,
-  k: number
-): void => {
-  const temp = arr[i];
-  arr[i] = arr[k];
-  arr[k] = temp;
-};
+import { TChar, TCharArr } from "../../types/types";
+import { delay, swap } from "../../utils";
 
 export const reverseString = async (
-  chars: Array<TItemArr<TItem>>,
+  chars: Array<TCharArr<TChar>>,
   setCharsArr: Function,
   i: number = 0,
   k: number = chars.length - 1
 ) => {
-  const newArr: Array<TItemArr<TItem>> = JSON.parse(JSON.stringify(chars));
+  const newArr: Array<TCharArr<TChar>> = JSON.parse(JSON.stringify(chars));
   const middle = newArr.length / 2;
 
   while (i < middle) {
