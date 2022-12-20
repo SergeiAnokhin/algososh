@@ -63,12 +63,14 @@ export const FibonacciPage: React.FC = () => {
           onChange={inputHandler}
           placeholder="Введите число"
           name="fibonacci-input"
+          data="input"
         />
         <Button
           type="submit"
           text="Рассчитать"
           disabled={value < MIN_VALUE || value > MAX_VALUE}
           isLoader={isLoading}
+          data="button"
         />
       </form>
       <div

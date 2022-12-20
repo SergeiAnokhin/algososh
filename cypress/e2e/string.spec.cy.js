@@ -1,6 +1,6 @@
 import { DELAY_IN_MS } from "./../../src/constants/delays";
 
-describe("Recursion page health check", function () {
+describe("Тестирование разворота строки", function () {
 
   const stringLength = 5;
   const initialString = 'hello';
@@ -28,16 +28,16 @@ describe("Recursion page health check", function () {
     "rgb(127, 224, 81)",
   ];
 
-  it("Recursion page must be available", function () {
+  it("Страница доступна", function () {
     cy.visit("/recursion");
   });
 
-  it("Checking if the input is empty, then the add button is not available", function () {
+  it("Кнопка Развернуть неактивна при пустом инпуте", function () {
     cy.get('[data="input"]').clear().should("have.value", "");
     cy.get('[data="button"]').should("have.attr", "disabled");
   });
 
-  it("Checking if the input is not empty, then the add button is available", function () {
+  it("Кнопка Развернуть активна при непустом инпуте", function () {
     cy.get('[data="input"]')
       .type("Test")
       .should("have.value", "Test");
@@ -45,7 +45,7 @@ describe("Recursion page health check", function () {
     cy.get('[data="input"]').clear().should("have.value", "");
   });
 
-  it("Checking if the string is reversed correctly", function () {
+  it("Строка разворачивается корректно", function () {
     cy.get('[data="input"]')
       .type(initialString)
       .should("have.value", initialString);

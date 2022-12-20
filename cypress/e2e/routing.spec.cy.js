@@ -1,36 +1,36 @@
-describe("app works correctly with routes", function () {
+describe("Тестирование доступности страниц приложения", function () {
 
     before(function () {
       cy.visit('/');
     });
   
   
-    it("should open string-page by link", function () {
+    it("Страница Строка доступна по ссылке", function () {
       cy.visit('/recursion');
     });
   
   
-    it("should open fibonacci-page by link", function () {
+    it("Страница Последовательность Фибоначчи доступна по ссылке", function () {
       cy.visit('/fibonacci');
     });
   
   
-    it("should open sorting-page by link", function () {
+    it("Страница Сортировка массива доступна по ссылке", function () {
       cy.visit('/sorting');
     });
   
   
-    it("should open stack-page by link", function () {
+    it("Страница Стек доступна по ссылке", function () {
       cy.visit('/stack');
     });
 
   
-    it("should open queue-page by link", function () {
+    it("Страница Очередь доступна по ссылке", function () {
       cy.visit('/queue');
     });
 
   
-    it("should open list-page by link", function () {
+    it("Страница Связный спиок доступна по ссылке", function () {
       cy.visit('/list');
     });
   
