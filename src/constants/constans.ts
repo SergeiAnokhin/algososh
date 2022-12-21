@@ -12,3 +12,4 @@ export const circle = '[data-cy=circle]';
 export const head = '[data-cy=head]';
 export const index = '[data-cy=index]';
 export const canvas = '[data-cy=canvas]';
+export const tail = '[data-cy=tail]';

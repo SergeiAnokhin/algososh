@@ -18,24 +18,20 @@ describe("Тестирование корректной работы Стека"
     cy.visit("/stack");
   });
 
-  it("Кнопки при пустом инпуте неактивны", function () {
+  it("Кнопка Добавить неактивна при пустом инпуте", function () {
     cy.get(input).clear().should("have.value", "");
     cy.get(addBtn).should("have.attr", "disabled");
-    cy.get(deleteBtn).should("have.attr", "disabled");
-    cy.get(resetBtn).should("have.attr", "disabled");
   });
 
   it("Кнопка Добавить активна при непустом инпуте", function () {
     cy.get(input).type("5").should("have.value", "5");
     cy.get(addBtn).should("not.have.attr", "disabled");
-    cy.get(deleteBtn).should("have.attr", "disabled");
-    cy.get(resetBtn).should("have.attr", "disabled");
     cy.get(input).clear().should("have.value", "");
     cy.get(addBtn).should("have.attr", "disabled");
   });
 
   it("Добавление первого элемента в Стек происходит корректно", function () {
-    cy.get(input).type("1");
+    cy.get(input).type("1").should("have.value", "1");
     cy.get(addBtn).click();
 
     cy.get(circle).within(($letters) => {

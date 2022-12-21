@@ -23,7 +23,7 @@ export const Input: React.FC<InputProps> = ({
 
   return (
     <div className={`${styles.content} ${extraClass}`}>
-      <input
+      <input data-cy='input'
         className={`${styles.input} text text_type_input text_color_input`}
         placeholder={placeholder}
         type={type}
