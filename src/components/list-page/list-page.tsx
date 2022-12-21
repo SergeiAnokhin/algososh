@@ -36,7 +36,7 @@ export const ListPage: FC = () => {
 	};
 
 	const smallCircle = (value: string) => (
-		<Circle isSmall={true} state={ElementStates.Changing} letter={value} />
+			<Circle isSmall={true} state={ElementStates.Changing} letter={value} />
 	);
 
 	const addToHeadHandler = () => {
@@ -216,31 +216,40 @@ export const ListPage: FC = () => {
 						value={value}
 						placeholder='Введите значение'
 						isLimitText
-						maxLength={4}></Input>
+						maxLength={4}
+						data-cy='inputValue'
+						></Input>
 					<Button
 						text='Добавить в head'
 						disabled={!value.length}
 						isLoader={addToHead}
 						extraClass={style.smallButton}
-						onClick={addToHeadHandler}></Button>
+						onClick={addToHeadHandler}
+						data-cy='addHeadBtn'></Button>
 					<Button
 						text='Добавить в tail'
 						disabled={!value.length}
 						isLoader={addToTail}
 						extraClass={style.smallButton}
-						onClick={addToTailHandler}></Button>
+						onClick={addToTailHandler}
+						data-cy='addTailBtn'
+						></Button>
 					<Button
 						text='Удалить из head'
 						disabled={addToTail || addToHead}
 						isLoader={removeFromHead}
 						extraClass={style.smallButton}
-						onClick={removeFromHeadHandler}></Button>
+						onClick={removeFromHeadHandler}
+						data-cy='deleteHeadBtn'
+						></Button>
 					<Button
 						text='Удалить из tail'
 						disabled={addToTail || addToHead}
 						isLoader={removeFromTail}
 						extraClass={style.smallButton}
-						onClick={removeFromTailHandler}></Button>
+						onClick={removeFromTailHandler}
+						data-cy='deleteTailBtn'
+						></Button>
 				</div>
 				<div className={style.controls}>
 					<Input
@@ -249,22 +258,28 @@ export const ListPage: FC = () => {
 						onChange={onChangeInputIndex}
 						value={index}
 						placeholder='Введите индекс'
-						maxLength={1}></Input>
+						maxLength={1}
+						data-cy='inputIndex'
+						></Input>
 					<Button
 						text='Добавить по индексу'
 						disabled={!index.length || !value.length}
 						isLoader={addByIndex}
 						extraClass={style.largeButton}
-						onClick={addByIndexHandler}></Button>
+						onClick={addByIndexHandler}
+						data-cy='addIndexBtn'
+						></Button>
 					<Button
 						text='Удалить по индексу'
 						disabled={!index.length}
 						isLoader={removeByIndex}
 						extraClass={style.largeButton}
-						onClick={removeByIndexHandler}></Button>
+						onClick={removeByIndexHandler}
+						data-cy='deleteIndexBtn'
+						></Button>
 				</div>
 			</div>
-			<div className={style.list}>
+			<div data-cy='list' className={style.list}>
 				{list.map(({ element, state, head, tail }: TListElement, i) => (
 					<Fragment key={nanoid()}>
 						<Circle

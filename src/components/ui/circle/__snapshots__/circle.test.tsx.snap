@@ -6,19 +6,24 @@ exports[`Компонент Circle отрисовка без буквы 1`] = `
 >
   <div
     className="text text_type_input text_color_input mb-4 absolute head element"
+    data-cy="head"
   />
   <div
     className="circle   default"
+    data-cy="circle"
   >
     <p
       className="text text_type_circle text_color_input letter"
+      data-cy="letter"
     />
   </div>
   <p
     className="text text_type_input text_color_input mt-4 absolute index"
+    data-cy="index"
   />
   <div
     className="text text_type_input text_color_input mt-4 absolute tail30 element"
+    data-cy="tail"
   />
 </div>
 `;
@@ -29,19 +34,24 @@ exports[`Компонент Circle отрисовка в состоянии chan
 >
   <div
     className="text text_type_input text_color_input mb-4 absolute head element"
+    data-cy="head"
   />
   <div
     className="circle   changing"
+    data-cy="circle"
   >
     <p
       className="text text_type_circle text_color_input letter"
+      data-cy="letter"
     />
   </div>
   <p
     className="text text_type_input text_color_input mt-4 absolute index"
+    data-cy="index"
   />
   <div
     className="text text_type_input text_color_input mt-4 absolute tail30 element"
+    data-cy="tail"
   />
 </div>
 `;
@@ -52,19 +62,24 @@ exports[`Компонент Circle отрисовка в состоянии defa
 >
   <div
     className="text text_type_input text_color_input mb-4 absolute head element"
+    data-cy="head"
   />
   <div
     className="circle   default"
+    data-cy="circle"
   >
     <p
       className="text text_type_circle text_color_input letter"
+      data-cy="letter"
     />
   </div>
   <p
     className="text text_type_input text_color_input mt-4 absolute index"
+    data-cy="index"
   />
   <div
     className="text text_type_input text_color_input mt-4 absolute tail30 element"
+    data-cy="tail"
   />
 </div>
 `;
@@ -75,19 +90,24 @@ exports[`Компонент Circle отрисовка в состоянии modi
 >
   <div
     className="text text_type_input text_color_input mb-4 absolute head element"
+    data-cy="head"
   />
   <div
     className="circle   modified"
+    data-cy="circle"
   >
     <p
       className="text text_type_circle text_color_input letter"
+      data-cy="letter"
     />
   </div>
   <p
     className="text text_type_input text_color_input mt-4 absolute index"
+    data-cy="index"
   />
   <div
     className="text text_type_input text_color_input mt-4 absolute tail30 element"
+    data-cy="tail"
   />
 </div>
 `;
@@ -98,21 +118,26 @@ exports[`Компонент Circle отрисовка с head 1`] = `
 >
   <div
     className="text text_type_input text_color_input mb-4 absolute head string"
+    data-cy="head"
   >
     1
   </div>
   <div
     className="circle   default"
+    data-cy="circle"
   >
     <p
       className="text text_type_circle text_color_input letter"
+      data-cy="letter"
     />
   </div>
   <p
     className="text text_type_input text_color_input mt-4 absolute index"
+    data-cy="index"
   />
   <div
     className="text text_type_input text_color_input mt-4 absolute tail30 element"
+    data-cy="tail"
   />
 </div>
 `;
@@ -123,21 +148,26 @@ exports[`Компонент Circle отрисовка с index 1`] = `
 >
   <div
     className="text text_type_input text_color_input mb-4 absolute head element"
+    data-cy="head"
   />
   <div
     className="circle   default"
+    data-cy="circle"
   >
     <p
       className="text text_type_circle text_color_input letter"
+      data-cy="letter"
     />
   </div>
   <p
     className="text text_type_input text_color_input mt-4 absolute index"
+    data-cy="index"
   >
     1
   </p>
   <div
     className="text text_type_input text_color_input mt-4 absolute tail60 element"
+    data-cy="tail"
   />
 </div>
 `;
@@ -148,40 +178,50 @@ exports[`Компонент Circle отрисовка с react-элементо�
 >
   <div
     className="text text_type_input text_color_input mb-4 absolute head element"
+    data-cy="head"
   >
     <div
       className="content "
     >
       <div
         className="text text_type_input text_color_input mb-4 absolute head element"
+        data-cy="head"
       />
       <div
         className="circle   default"
+        data-cy="circle"
       >
         <p
           className="text text_type_circle text_color_input letter"
+          data-cy="letter"
         />
       </div>
       <p
         className="text text_type_input text_color_input mt-4 absolute index"
+        data-cy="index"
       />
       <div
         className="text text_type_input text_color_input mt-4 absolute tail30 element"
+        data-cy="tail"
       />
     </div>
   </div>
   <div
     className="circle   default"
+    data-cy="circle"
   >
     <p
       className="text text_type_circle text_color_input letter"
+      data-cy="letter"
     />
   </div>
   <p
     className="text text_type_input text_color_input mt-4 absolute index"
+    data-cy="index"
   />
   <div
     className="text text_type_input text_color_input mt-4 absolute tail30 element"
+    data-cy="tail"
   />
 </div>
 `;
@@ -192,38 +232,48 @@ exports[`Компонент Circle отрисовка с react-элементо�
 >
   <div
     className="text text_type_input text_color_input mb-4 absolute head element"
+    data-cy="head"
   />
   <div
     className="circle   default"
+    data-cy="circle"
   >
     <p
       className="text text_type_circle text_color_input letter"
+      data-cy="letter"
     />
   </div>
   <p
     className="text text_type_input text_color_input mt-4 absolute index"
+    data-cy="index"
   />
   <div
     className="text text_type_input text_color_input mt-4 absolute tail30 element"
+    data-cy="tail"
   >
     <div
       className="content "
     >
       <div
         className="text text_type_input text_color_input mb-4 absolute head element"
+        data-cy="head"
       />
       <div
         className="circle   default"
+        data-cy="circle"
       >
         <p
           className="text text_type_circle text_color_input letter"
+          data-cy="letter"
         />
       </div>
       <p
         className="text text_type_input text_color_input mt-4 absolute index"
+        data-cy="index"
       />
       <div
         className="text text_type_input text_color_input mt-4 absolute tail30 element"
+        data-cy="tail"
       />
     </div>
   </div>
@@ -236,19 +286,24 @@ exports[`Компонент Circle отрисовка с tail 1`] = `
 >
   <div
     className="text text_type_input text_color_input mb-4 absolute head element"
+    data-cy="head"
   />
   <div
     className="circle   default"
+    data-cy="circle"
   >
     <p
       className="text text_type_circle text_color_input letter"
+      data-cy="letter"
     />
   </div>
   <p
     className="text text_type_input text_color_input mt-4 absolute index"
+    data-cy="index"
   />
   <div
     className="text text_type_input text_color_input mt-4 absolute tail30 string"
+    data-cy="tail"
   >
     1
   </div>
@@ -261,21 +316,26 @@ exports[`Компонент Circle отрисовка с буквами 1`] = `
 >
   <div
     className="text text_type_input text_color_input mb-4 absolute head element"
+    data-cy="head"
   />
   <div
     className="circle   default"
+    data-cy="circle"
   >
     <p
       className="text text_type_circle text_color_input letter"
+      data-cy="letter"
     >
       test
     </p>
   </div>
   <p
     className="text text_type_input text_color_input mt-4 absolute index"
+    data-cy="index"
   />
   <div
     className="text text_type_input text_color_input mt-4 absolute tail30 element"
+    data-cy="tail"
   />
 </div>
 `;
@@ -286,19 +346,24 @@ exports[`Компонент Circle отрисовка с пропом isSmall ==
 >
   <div
     className="text text_type_input text_color_input mb-4 absolute head element"
+    data-cy="head"
   />
   <div
     className="circle  small default"
+    data-cy="smallCircle"
   >
     <p
       className="text text_type_circle text_color_input letter"
+      data-cy="letter"
     />
   </div>
   <p
     className="text text_type_input text_color_input mt-4 absolute index"
+    data-cy="index"
   />
   <div
     className="text text_type_input text_color_input mt-4 absolute tail30 element"
+    data-cy="tail"
   />
 </div>
 `;

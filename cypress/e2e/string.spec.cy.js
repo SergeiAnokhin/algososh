@@ -1,4 +1,5 @@
 import { DELAY_IN_MS } from "./../../src/constants/delays";
+import {circle, input, button} from "../../src/constants/constans"
 
 describe("Тестирование разворота строки", function () {
 
@@ -33,30 +34,27 @@ describe("Тестирование разворота строки", function ()
   });
 
   it("Кнопка Развернуть неактивна при пустом инпуте", function () {
-    cy.get('[data="input"]').clear().should("have.value", "");
-    cy.get('[data="button"]').should("have.attr", "disabled");
+    cy.get(input).clear().should("have.value", "");
+    cy.get(button).should("have.attr", "disabled");
   });
 
   it("Кнопка Развернуть активна при непустом инпуте", function () {
-    cy.get('[data="input"]')
+    cy.get(input)
       .type("Test")
       .should("have.value", "Test");
-    cy.get('[data="button"]').should("not.have.attr", "disabled");
-    cy.get('[data="input"]').clear().should("have.value", "");
+    cy.get(button).should("not.have.attr", "disabled");
+    cy.get(input).clear().should("have.value", "");
   });
 
   it("Строка разворачивается корректно", function () {
-    cy.get('[data="input"]')
+    cy.get(input)
       .type(initialString)
       .should("have.value", initialString);
-    cy.get('[data="button"]').as("btn");
-    cy.get("@btn").should("not.have.attr", "disabled");
+    cy.get(button).should("not.have.attr", "disabled");
 
-    cy.get("@btn").click();
+    cy.get(button).click();
 
-    cy.get("[class^=circle_circle]").as("circles");
-
-    cy.get("@circles").each(($el, index, $list) => {
+    cy.get(circle).each(($el, index, $list) => {
       cy.get($list).should("have.length", stringLength);
       cy.get($el).contains(initialString[index]);
       cy.get($el).should("have.css", "border-color", initialColorArr[index]);
@@ -64,7 +62,7 @@ describe("Тестирование разворота строки", function ()
 
      cy.wait(DELAY_IN_MS);
 
-     cy.get("@circles").each(($el, index, $list) => {
+     cy.get(circle).each(($el, index, $list) => {
       cy.get($list).should("have.length", stringLength);
       cy.get($el).contains(stringInProcess[index]);
       cy.get($el).should("have.css", "border-color", changingColorArr[index]);
@@ -72,7 +70,7 @@ describe("Тестирование разворота строки", function ()
 
      cy.wait(DELAY_IN_MS);
 
-     cy.get("@circles").each(($el, index, $list) => {
+     cy.get(circle).each(($el, index, $list) => {
       cy.get($list).should("have.length", stringLength);
       cy.get($el).contains(stringFinal[index]);
       cy.get($el).should("have.css", "border-color", finalColorArr[index]);

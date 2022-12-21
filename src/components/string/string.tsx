@@ -35,7 +35,6 @@ export const StringComponent: React.FC = () => {
     <SolutionLayout title="Строка">
       <div className={style.container}>
         <Input
-          data="input"
           onChange={handlerChangeInput}
           placeholder="Введите текст"
           maxLength={11}
