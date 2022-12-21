@@ -98,10 +98,14 @@ export const QueuePage: React.FC = () => {
   const handleInput = (e: React.FormEvent<HTMLInputElement>) => {
     setInputValue(e.currentTarget.value)
   }
+
+  const handlerFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+  }
   
   return (
     <SolutionLayout title="Очередь">
-        <form className={style.form}>
+        <form className={style.form} onSubmit={handlerFormSubmit}>
           <Input
             placeholder="Введите значение"
             min={1}

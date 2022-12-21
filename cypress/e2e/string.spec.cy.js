@@ -1,5 +1,5 @@
 import { DELAY_IN_MS } from "./../../src/constants/delays";
-import {circle, input, button} from "../../src/constants/constans"
+import {circle, input, button, defaultColor, changingColor, modifiedColor} from "../../src/constants/constans"
 
 describe("Тестирование разворота строки", function () {
 
@@ -8,25 +8,25 @@ describe("Тестирование разворота строки", function ()
   const stringInProcess = 'oellh';
   const stringFinal = 'olleh';
   const initialColorArr = [
-    "rgb(210, 82, 225)",
-    "rgb(0, 50, 255)",
-    "rgb(0, 50, 255)",
-    "rgb(0, 50, 255)",
-    "rgb(210, 82, 225)",
+    changingColor,
+    defaultColor,
+    defaultColor,
+    defaultColor,
+    changingColor,
   ];
   const changingColorArr = [
-    "rgb(127, 224, 81)",
-    "rgb(210, 82, 225)",
-    "rgb(0, 50, 255)",
-    "rgb(210, 82, 225)",
-    "rgb(127, 224, 81)",
+    modifiedColor,
+    changingColor,
+    defaultColor,
+    changingColor,
+    modifiedColor,
   ];
   const finalColorArr = [
-    "rgb(127, 224, 81)",
-    "rgb(127, 224, 81)",
-    "rgb(127, 224, 81)",
-    "rgb(127, 224, 81)",
-    "rgb(127, 224, 81)",
+    modifiedColor,
+    modifiedColor,
+    modifiedColor,
+    modifiedColor,
+    modifiedColor,
   ];
 
   it("Страница доступна", function () {

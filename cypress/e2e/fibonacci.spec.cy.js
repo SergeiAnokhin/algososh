@@ -1,4 +1,4 @@
-import {circle, input, button} from "../../src/constants/constans"
+import {circle, input, button, defaultColor} from "../../src/constants/constans"
 
 describe("Тестирование последовательности Фибоначчи", function () {
   
@@ -25,7 +25,7 @@ describe("Тестирование последовательности Фибо
       cy.get(circle)
         .should("have.length", 6)
         .each(($circle, index) => {
-          cy.get($circle).should("have.css", "border-color", "rgb(0, 50, 255)");
+          cy.get($circle).should("have.css", "border-color", defaultColor);
         });
     });
   });

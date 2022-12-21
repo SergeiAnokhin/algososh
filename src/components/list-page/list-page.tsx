@@ -253,8 +253,9 @@ export const ListPage: FC = () => {
 				</div>
 				<div className={style.controls}>
 					<Input
-            type="number"
-            min={0}
+						type="number"
+						min={0}
+						max={7}
 						onChange={onChangeInputIndex}
 						value={index}
 						placeholder='Введите индекс'
@@ -263,7 +264,7 @@ export const ListPage: FC = () => {
 						></Input>
 					<Button
 						text='Добавить по индексу'
-						disabled={!index.length || !value.length}
+						disabled={!index.length || !value.length || Number(index) > list.length}
 						isLoader={addByIndex}
 						extraClass={style.largeButton}
 						onClick={addByIndexHandler}
@@ -271,7 +272,7 @@ export const ListPage: FC = () => {
 						></Button>
 					<Button
 						text='Удалить по индексу'
-						disabled={!index.length}
+						disabled={!index.length || Number(index) > list.length - 1}
 						isLoader={removeByIndex}
 						extraClass={style.largeButton}
 						onClick={removeByIndexHandler}

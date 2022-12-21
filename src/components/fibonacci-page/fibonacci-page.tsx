@@ -9,9 +9,9 @@ import { MIN_VALUE, MAX_VALUE } from "../../constants/constans";
 
 export const FibonacciPage: React.FC = () => {
 
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = React.useState<number>(0);
   const [fibArray, setFibArray] = React.useState<number[]>([]);
-  const [isLoading, setIsLoading] = React.useState(false);
+  const [isLoading, setIsLoading] = React.useState<boolean>(false);
 
   const getFibonacciNumbers = (n: number): number[] => {
     const arr = [1, 1];
@@ -61,6 +61,7 @@ export const FibonacciPage: React.FC = () => {
           min={MIN_VALUE}
           isLimitText={true}
           onChange={inputHandler}
+          value={value ? value : ''}
           placeholder="Введите число"
           name="fibonacci-input"
           data="input"
