@@ -30,6 +30,7 @@ export const QueuePage: React.FC = () => {
 
   const enqueue = async () => {
     setAdding(true)
+
     setInputValue("")
 
     const copyArr = [...arrLetters]
@@ -40,7 +41,7 @@ export const QueuePage: React.FC = () => {
     copyArr[newHead.index].head = "head"
 
     setheadIndex(newHead.index)
-
+    
     if (newTail.index > 0) copyArr[newTail.index - 1].tail = ""
     copyArr[newTail.index].char = newTail.value!
     copyArr[newTail.index].tail = "tail"
@@ -54,10 +55,22 @@ export const QueuePage: React.FC = () => {
 
   const dequeue = async () => {
     setDeleting(true)
+
     const copyArr = [...arrLetters]
     const head = queue.getHead()
     const tail = queue.getTail()
-    if (head.index === tail.index) clearQueue()
+
+    copyArr[head.index].state = ElementStates.Changing
+    await sortAndWait(copyArr)
+    copyArr[head.index].state = ElementStates.Default
+
+    if (head.index === tail.index) {
+      const newQueue = new Queue<string>(6)
+      setQueue(newQueue)
+      copyArr[head.index].head = "head"
+      copyArr[head.index].char = ""
+      copyArr[tail.index].tail = ""
+    }
     else {
       queue.dequeue()
       const newHead = queue.getHead()
@@ -70,9 +83,6 @@ export const QueuePage: React.FC = () => {
 
       copyArr[newHead.index].char = newHead.value!
       copyArr[newHead.index].head = "head"
-      copyArr[newHead.index].state = ElementStates.Changing
-      await sortAndWait(copyArr)
-      copyArr[newHead.index].state = ElementStates.Default
     }
 
     setDeleting(false)
@@ -88,10 +98,14 @@ export const QueuePage: React.FC = () => {
   const handleInput = (e: React.FormEvent<HTMLInputElement>) => {
     setInputValue(e.currentTarget.value)
   }
+
+  const handlerFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+  }
   
   return (
     <SolutionLayout title="Очередь">
-        <form className={style.form}>
+        <form className={style.form} onSubmit={handlerFormSubmit}>
           <Input
             placeholder="Введите значение"
             min={1}
@@ -104,12 +118,14 @@ export const QueuePage: React.FC = () => {
             disabled={
               !inputValue ||
               deleting ||
-              arrLetters[arrLetters.length - 1].char !== ""
+              arrLetters[arrLetters.length - 1].char !== "" ||
+              arrLetters[arrLetters.length - 1].head === "head"
             }
             isLoader={adding}
             text="Добавить"
             type="button"
             onClick={() => enqueue()}
+            data-cy="addBtn"
           />
           <Button
             isLoader={deleting}
@@ -117,6 +133,7 @@ export const QueuePage: React.FC = () => {
             text="Удалить"
             type="button"
             onClick={() => dequeue()}
+            data-cy="deleteBtn"
           />
           <Button
             extraClass={style.clearButton}
@@ -124,6 +141,7 @@ export const QueuePage: React.FC = () => {
             text="Очистить"
             type="button"
             onClick={() => clearQueue()}
+            data-cy="resetBtn"
           />
         </form>
         <ul className={style.circleList}>

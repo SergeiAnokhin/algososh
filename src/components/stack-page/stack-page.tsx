@@ -66,6 +66,7 @@ export const StackPage: React.FC = () => {
           onChange={changeInput}
           value={inputValue}
           disabled={inProcess.add || inProcess.remove}
+          data-cy="input"
         />
         <Button
           type={'submit'}
@@ -73,6 +74,7 @@ export const StackPage: React.FC = () => {
           disabled={inputValue.length < 1 || circles.length >= 20 || isAnyProcess}
           isLoader={inProcess.add}
           extraClass={styles.button}
+          data-cy="addBtn"
         />
         <Button
           text={'Удалить'}
@@ -80,16 +82,18 @@ export const StackPage: React.FC = () => {
           disabled={circles.length < 1 || isAnyProcess}
           isLoader={inProcess.remove}
           extraClass={styles.button}
+          data-cy="deleteBtn"
         />
         <Button
           text={'Очистить'}
           onClick={clearCircles}
           disabled={circles.length < 1 || isAnyProcess}
           extraClass={styles.button}
+          data-cy="resetBtn"
         />
       </form>
       {circles ?
-        <div className={styles.canvas}>
+        <div className={styles.canvas} data-cy="canvas">
           {circles.map((item, index) =>
             <Circle
               letter={item}

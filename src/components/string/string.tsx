@@ -1,101 +1,59 @@
-import {useState, useMemo, useEffect} from "react";
-import { SolutionLayout } from "../ui/solution-layout/solution-layout";
-import { Input } from "../ui/input/input";
+import React, { useState } from "react";
+import { ElementStates } from "../../types/element-states";
+import { reverseString } from "../../components/string/utils";
+import { TChar, TCharArr } from "../../types/types";
 import { Button } from "../ui/button/button";
 import { Circle } from "../ui/circle/circle";
-import { DELAY_IN_MS } from "../../constants/delays";
+import { Input } from "../ui/input/input";
+import { SolutionLayout } from "../ui/solution-layout/solution-layout";
 import style from "./string.module.css";
-import { ElementStates } from "../../types/element-states";
-import { swap } from "./utils";
-import { IChars } from "../../types/string";
 
 export const StringComponent: React.FC = () => {
+  const [disabled, setDisabled] = useState<boolean>(true);
+  const [loaderBtn, setLoaderBtn] = useState<boolean>(false);
+  const [charsArr, setCharsArr] = useState<Array<TCharArr<TChar>>>([]);
+  const [inputValue, setInputValue] = useState('');
 
-  const [isLoader, setIsLoader] = useState(false);
-  const [isDisabled, setIsDisabled] = useState(true);
-  const [inputString, setInputString] = useState("");
-  const [arrChars, setArrChars] = useState<IChars[]>([]);
-
-  const reverseString = (j: number, i: number, arr: IChars[]) => {
-    const mid = Math.floor(arr.length / 2);
-    if (j <= i) {
-      arr[j].color = ElementStates.Changing;
-      arr[i].color = ElementStates.Changing;
-    }
-    if ((j <= mid) && (j <= i))
-      setTimeout(() => {
-        arr = swap(j, i, arr);
-        arr[j].color = ElementStates.Modified;
-        arr[i].color = ElementStates.Modified;
-        j++;
-        i--;
-        reverseString(j, i, arr);
-      }, DELAY_IN_MS);
-    else {
-      if (j - 1 >= 0) {
-      }
-      setArrChars(arr);
-      setIsLoader(false);
-      return;
-    }
-    if (j - 1 >= 0) {
-      arr[j - 1].color = ElementStates.Modified;
-    }
-    if (i - 1 < arr.length - 2) {
-      arr[i + 1].color = ElementStates.Modified;
-    }
-    setArrChars(arr);
+  const handlerChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.currentTarget.value.length > 0 ? setDisabled(false) : setDisabled(true);
+    setInputValue(e.target.value)
   };
-  const wrapString = 
-      (string: string) => {
-      setIsLoader(true);
-      const newArr: IChars[] = [];
-      const arrString: string[] = string.split("");
-      for (let i = 0; i <= arrString.length - 1; i++) {
-        newArr[i] = { chars: arrString[i], color: ElementStates.Default };
-      }
-      newArr[0].color = ElementStates.Changing;
-      newArr[newArr.length - 1].color = ElementStates.Changing;
-      setArrChars(newArr);
-      setTimeout(() => {
-        reverseString(0, newArr.length - 1, newArr);
-      }, DELAY_IN_MS);
-    }
-  const inputChange = (event: any) => {
-      setInputString(event.target.value);
-      if (event.target.value) {
-        setIsDisabled(false);
-      } else {
-        setIsDisabled(true);
-      }
-    }
+
+  const handlerBtnClick = async () => {
+    const newArr = inputValue.split("").map((chars: string) => {
+      return {
+        chars,
+        state: ElementStates.Default,
+      };
+    })
+    setLoaderBtn(true);
+    await reverseString(newArr, setCharsArr);
+    setLoaderBtn(false);
+  };
 
   return (
     <SolutionLayout title="Строка">
-     <div className={style.page}>
+      <div className={style.container}>
         <Input
-          extraClass={style.input}
-          type={"text"}
+          onChange={handlerChangeInput}
+          placeholder="Введите текст"
           maxLength={11}
-          value={inputString}
           isLimitText
-          onChange={inputChange}
         />
         <Button
+          onClick={handlerBtnClick}
           text="Развернуть"
-          isLoader={isLoader}
-          disabled={isDisabled}
-          linkedList={"small"}
-          onClick={() => wrapString(inputString)}
+          linkedList="small"
+          isLoader={loaderBtn}
+          disabled={disabled}
+          data="button"
         />
       </div>
-      <ul className={style.chars}>
-        {arrChars.map((item, index) => (
-          <li key={index} className={item.chars}>
-            <Circle extraClass={style.char} state={item.color} letter={item.chars} />
-          </li>
+      <div className={style.circle}>
+        {charsArr?.map((char, index) => (
+          <Circle state={char.state} letter={`${char.chars}`} key={index} />
         ))}
-      </ul>
+      </div>
     </SolutionLayout>
   );
 };

@@ -1,23 +1,15 @@
-.page {
-    display: flex;
-    justify-content: center;
-    min-width: 300px;
-  }
-  
-  .input {
-    display: flex;
-    width: 490px;
-    margin-right: 15px;
-  }
-  
-  .chars {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding: 100px 0 0;
-    margin: 10px;
-    list-style: none;
-  }
-  .char {
-    margin: 7px;
-  }
+.container {
+  display: flex;
+  max-width: 522px;
+  margin: 0 auto;
+  gap: 12px;
+}
+
+.circle {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 100%;
+  margin: 120px auto 0;
+  gap: 16px;
+}
